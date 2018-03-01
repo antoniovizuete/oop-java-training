@@ -4,6 +4,4 @@
 .recommenders/
 *.class
 */.settings/
-*.project
-*.classpath
 *.iml
