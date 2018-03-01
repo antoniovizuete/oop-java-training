@@ -1,0 +1,8 @@
+.metadata/
+.idea/
+.sonarlint/
+.recommenders/
+*.class
+*/.settings/
+*.project
+*.classpath
