@@ -1,21 +1,23 @@
 package com.es.everis.beca.restaurante.modelo;
 
+/**
+ * Clase Cliente.
+ */
 public class Cliente extends Persona {
-	
-	//private Reserva reserva;
-	
-	
-	public void reservar() {
-		
-	};
-	
-	public void hacerpedido() {
-		
-	};
-	
-	public void reclamar() {
-		
-	};
-	
-	
+
+  /**
+   * Hacerpedido.
+   */
+  public void hacerpedido() {
+
+  };
+
+  /**
+   * Reclamar.
+   */
+  public void reclamar() {
+
+  };
+
+
 }

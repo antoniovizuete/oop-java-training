@@ -1,75 +1,149 @@
 package com.es.everis.beca.restaurante.modelo;
 
+/**
+ * Clase Mesa.
+ *
+ * Se considera que una Mesa está reservada cuando la propiedad libre es false.
+ *
+ */
 public class Mesa {
 
-	private boolean libre;
+  private boolean libre;
 
-	private Persona camarero;
+  private Persona camarero;
 
-	private Pedido pedido;
+  private Pedido pedido;
 
-	private Persona cliente;
+  private Persona cliente;
 
-	private Integer comensales;
+  private Integer comensales;
 
-	private Integer id;
+  private Integer id;
 
-	public Mesa() {
+  /**
+   * Instantiates a new Mesa.
+   */
+  public Mesa() {
 
-	}
+  }
 
-	public Persona getCamarero() {
-		return camarero;
-	}
+  /**
+   * Gets camarero.
+   *
+   * @return the camarero
+   */
+  public Persona getCamarero() {
+    return camarero;
+  }
 
-	public void setCamarero(Persona camarero) {
-		this.camarero = camarero;
-	}
+  /**
+   * Sets camarero.
+   *
+   * @param camarero the camarero
+   */
+  public void setCamarero(Persona camarero) {
+    this.camarero = camarero;
+  }
 
-	public Pedido getPedido() {
-		return pedido;
-	}
+  /**
+   * Gets pedido.
+   *
+   * @return the pedido
+   */
+  public Pedido getPedido() {
+    return pedido;
+  }
 
-	public void setPedido(Pedido pedido) {
-		this.pedido = pedido;
-	}
+  /**
+   * Sets pedido.
+   *
+   * @param pedido the pedido
+   */
+  public void setPedido(Pedido pedido) {
+    this.pedido = pedido;
+  }
 
-	public Persona getCliente() {
-		return cliente;
-	}
+  /**
+   * Gets cliente.
+   *
+   * @return the cliente
+   */
+  public Persona getCliente() {
+    return cliente;
+  }
 
-	public void setCliente(Persona cliente) {
-		this.cliente = cliente;
-	}
+  /**
+   * Sets cliente.
+   *
+   * @param cliente the cliente
+   */
+  public void setCliente(Persona cliente) {
+    this.cliente = cliente;
+  }
 
-	public Integer getComensales() {
-		return comensales;
-	}
+  /**
+   * Gets comensales.
+   *
+   * @return the comensales
+   */
+  public Integer getComensales() {
+    return comensales;
+  }
 
-	public void setComensales(Integer comensales) {
-		this.comensales = comensales;
-	}
+  /**
+   * Sets comensales.
+   *
+   * @param comensales the comensales
+   */
+  public void setComensales(Integer comensales) {
+    this.comensales = comensales;
+  }
 
-	public Integer getId() {
-		return id;
-	}
+  /**
+   * Gets id.
+   *
+   * @return the id
+   */
+  public Integer getId() {
+    return id;
+  }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  /**
+   * Sets id.
+   *
+   * @param id the id
+   */
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
+  /**
+   * Is libre boolean.
+   *
+   * @return the boolean
+   */
   public boolean isLibre() {
     return libre;
   }
 
+  /**
+   * Sets libre.
+   *
+   * @param libre the libre
+   */
   public void setLibre(boolean libre) {
     this.libre = libre;
   }
 
-	public String getReservaDesc() {
-		return "Mesa #" + this.id + " reservada a nombre de " + this.cliente.getNombre() + " para "
-				+ this.getComensales() + " personas";
-	}
+  /**
+   * Gets reserva desc.
+   *
+   * @return the reserva desc
+   */
+  public String getReservaDesc() {
+    return "Mesa #" + this.id + " reservada a nombre de " + this.cliente.getNombre() + " para "
+        + this.getComensales() + " personas";
+  }
 
   @Override public String toString() {
     return "Mesa{" + "id=" + id + ", libre=" + libre + '}';

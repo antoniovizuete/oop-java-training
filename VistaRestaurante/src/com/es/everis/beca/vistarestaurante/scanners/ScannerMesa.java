@@ -5,9 +5,17 @@ import com.es.everis.beca.restaurante.modelo.Mesa;
 
 import java.util.Scanner;
 
+/**
+ * La clase ScannerMesa crea una instancia de la clase {@link Mesa} a través de System.in.
+ */
 public class ScannerMesa {
   private Scanner scanner = new Scanner(System.in);
 
+  /**
+   * Crea la instancia de {@link Mesa} empleando lo introducido por el usuario.
+   *
+   * @return mesa
+   */
   public Mesa scan() {
     if(!Restaurante.controlReservas.hayMesasLibres()) {
       return null;
