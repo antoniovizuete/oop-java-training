@@ -3,7 +3,8 @@ package com.es.everis.beca.restaurante.modelo;
 /**
  * Clase Mesa.
  *
- * Se considera que una Mesa está reservada cuando la propiedad libre es false.
+ * Se considera que una Mesa esta
+ * reservada cuando la propiedad libre es false.
  *
  */
 public class Mesa {

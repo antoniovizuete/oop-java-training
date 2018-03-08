@@ -5,6 +5,7 @@ import com.es.everis.beca.restaurante.modelo.Mesa;
 import com.es.everis.beca.restaurante.modelo.Persona;
 import com.es.everis.beca.vistarestaurante.scanners.ScannerComensales;
 import com.es.everis.beca.vistarestaurante.scanners.ScannerMesa;
+import com.es.everis.beca.vistarestaurante.scanners.ScannerNumerico;
 import com.es.everis.beca.vistarestaurante.scanners.ScannerPersona;
 
 import java.util.Scanner;
@@ -12,6 +13,10 @@ import java.util.Scanner;
 /**
  * Clase inicializadora de la aplicacion.
  */
+/*
+ * dsjlkdsajkldsalkjdsaklj
+ */
+// jkdsakjdsahkjsdhj
 public class MenuAplicacion {
 
   /**
@@ -21,21 +26,24 @@ public class MenuAplicacion {
    */
   public static void main(String[] args) {
     Restaurante.inicializarRestaurante();
-    showMenu();
+    while (true) {
+		showMenu();
+	}
   }
 
   /**
-   * Muestra el menú
+   * Muestra el menu
    */
   private static void showMenu() {
     System.out.println("Bienvenido al restaurante");
-    System.out.println("Elija una opción: ");
+    System.out.println("Elija una opcion: ");
     System.out.println("1) Reservar mesa");
     System.out.println("2) Listar reservas");
+    System.out.println("98) Pruebas");
     System.out.println("99) Salir");
 
-    Scanner scan = new Scanner(System.in);
-    Integer opcion = scan.nextInt();
+    
+    Integer opcion = ScannerNumerico.scan();
 
     switch (opcion) {
       case 1:
@@ -46,6 +54,9 @@ public class MenuAplicacion {
         System.out.println(">>>>>>>>>> LISTAR");
         listarReservas();
         break;
+      case 98:
+          pruebas();
+          break;
       case 99:
         System.exit(0);
         break;
@@ -53,8 +64,7 @@ public class MenuAplicacion {
         System.err.println("ERROR");
         break;
     }
-
-    showMenu();
+    
   }
 
   /**
@@ -93,6 +103,11 @@ public class MenuAplicacion {
    */
   private static void listarReservas() {
     Restaurante.controlReservas.listarReservas(System.out);
+  }
+  
+  private static void pruebas() {
+	  ScannerComensales scannerComensales = new ScannerComensales();
+      int numComensales = scannerComensales.scan();
   }
 
 }

@@ -9,7 +9,6 @@ import java.util.Scanner;
  * La clase ScannerMesa crea una instancia de la clase {@link Mesa} a través de System.in.
  */
 public class ScannerMesa {
-  private Scanner scanner = new Scanner(System.in);
 
   /**
    * Crea la instancia de {@link Mesa} empleando lo introducido por el usuario.
@@ -20,18 +19,11 @@ public class ScannerMesa {
     if(!Restaurante.controlReservas.hayMesasLibres()) {
       return null;
     }
-    System.out.println("Introduzca 0 para seleccionar cualquier mesa");
-    System.out.print("Las mesas ");
-    for(Mesa mesa: Restaurante.mesas) {
-      if(mesa.isLibre()) {
-        System.out.print(mesa.getId() + ",");
-      }
-    }
+    
+    printMesasLibres();
+    System.out.println("Introduzca el numero de la mesa a reservar:");
 
-    System.out.println(" están libres.");
-    System.out.println("Introduzca el número de la mesa a reservar:");
-
-    int mesaId = scanner.nextInt();
+    int mesaId = ScannerNumerico.scan();
     Mesa resultado = null;
 
     for(Mesa mesa: Restaurante.mesas) {
@@ -48,4 +40,15 @@ public class ScannerMesa {
 
     return resultado;
   }
+
+	private void printMesasLibres() {
+		System.out.println("Introduzca 0 para seleccionar cualquier mesa");
+	    System.out.print("Las mesas ");
+	    for(Mesa mesa: Restaurante.mesas) {
+	      if(mesa.isLibre()) {
+	        System.out.print(mesa.getId() + ",");
+	      }
+	    }
+	    System.out.println(" estan libres.");
+	}
 }
