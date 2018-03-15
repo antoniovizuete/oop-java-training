@@ -10,7 +10,7 @@ import java.util.Scanner;
  * instancia de la clase {@link Persona} 
  * a traves de System.in.
  */
-public class ScannerPersona {
+public class ScannerPersona extends ScannerPadre {
   private Scanner scanner = new Scanner(System.in);
 
   /**

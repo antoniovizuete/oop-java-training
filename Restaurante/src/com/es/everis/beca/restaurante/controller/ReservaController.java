@@ -5,11 +5,15 @@ import com.es.everis.beca.restaurante.modelo.Mesa;
 import com.es.everis.beca.restaurante.modelo.Persona;
 
 import java.io.PrintStream;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Clase que tiene la lógica de las reservas.
  */
 public class ReservaController {
+
+  private Restaurante restaurante = Restaurante.getInstance();
 
   /**
    * Devuelve true si hay alguna mesa libre.
@@ -18,7 +22,7 @@ public class ReservaController {
    */
   public boolean hayMesasLibres() {
     boolean resultado = false;
-    for (Mesa mesa : Restaurante.mesas) {
+    for (Mesa mesa : restaurante.getMesas()) {
       if (mesa.isLibre()) {
         resultado = true;
       }
@@ -35,7 +39,7 @@ public class ReservaController {
    * @return la mesa
    */
   public Mesa reservar(Mesa mesaAReservar, Persona persona, int numComnesales) {
-    for (Mesa mesa : Restaurante.mesas) {
+    for (Mesa mesa : restaurante.getMesas()) {
       if (mesaAReservar.getId().intValue() == mesa.getId().intValue()) {
         mesa.setCliente(persona);
         mesa.setComensales(numComnesales);
@@ -53,7 +57,7 @@ public class ReservaController {
    */
   public void listarReservas(PrintStream printer) {
     int c = 0;
-    for (Mesa mesa : Restaurante.mesas) {
+    for (Mesa mesa : restaurante.getMesas()) {
       if (!mesa.isLibre()) {
         c++;
       }
@@ -62,7 +66,7 @@ public class ReservaController {
     printer.println("Hay " + c + " reservas.");
 
     if (c > 0) {
-      for (Mesa mesa : Restaurante.mesas) {
+      for (Mesa mesa : restaurante.getMesas()) {
         if (!mesa.isLibre()) {
           printer.println(mesa.getReservaDesc());
         }
@@ -70,6 +74,14 @@ public class ReservaController {
     }
   }
 
-
+  /**
+   * Deveulve las mesas reservadas.
+   *
+   * @return lista de mesas reservadas
+   */
+  public List<Mesa> getReservas(){
+    return restaurante.getMesas().stream()
+        .filter(mesa -> !mesa.isLibre()).collect(Collectors.toList());
+  }
 
 }

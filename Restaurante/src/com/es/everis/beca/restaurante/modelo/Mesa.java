@@ -9,6 +9,8 @@ package com.es.everis.beca.restaurante.modelo;
  */
 public class Mesa {
 
+  private Integer id;
+
   private boolean libre;
 
   private Persona camarero;
@@ -19,13 +21,17 @@ public class Mesa {
 
   private Integer comensales;
 
-  private Integer id;
+  /**
+   * Instantiates a new Mesa.
+   */
+  public Mesa() { }
 
   /**
    * Instantiates a new Mesa.
    */
-  public Mesa() {
-
+  public Mesa(Integer id, boolean libre) {
+    this.id = id;
+    this.libre = libre;
   }
 
   /**

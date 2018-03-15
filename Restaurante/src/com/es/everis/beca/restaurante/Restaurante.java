@@ -6,40 +6,60 @@ import com.es.everis.beca.restaurante.modelo.Cocinero;
 import com.es.everis.beca.restaurante.modelo.Empleado;
 import com.es.everis.beca.restaurante.modelo.Mesa;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 
 /**
  * Clase contendora del Restaurante. Almacena las instancias de las clases del modelo de negocio.
  */
 public class Restaurante {
 
-  /**
-   * Las mesas.
-   */
-  public static Mesa[] mesas = new Mesa[20];
-  /**
-   * Los empleados.
-   */
-  public static Empleado[] empleados = new Empleado[5];
+  private static Restaurante restaurante;
 
-  /**
-   * El controlador de las reservas.
-   */
-  public static ReservaController controlReservas = new ReservaController();
+  private List<Mesa> mesas;
+  private List<Empleado> empleados;
 
-  /**
-   * Inicializa el Restaurante, creando las instancias de {@link Mesa}.
-   */
-  public static void inicializarRestaurante() {
-    for (int i = 0; i < mesas.length; i++) {
-      mesas[i] = new Mesa();
-      mesas[i].setId(i + 1);
-      mesas[i].setLibre(true);
+  private Restaurante() {
+    mesas = new ArrayList<>();
+    empleados = new ArrayList<>();
+    inicializarRestaurante();
+  }
+
+  public static Restaurante getInstance() {
+    if(restaurante == null) {
+      restaurante = new Restaurante();
+    }
+    return restaurante;
+  }
+
+  public List<Mesa> getMesas() {
+    return mesas;
+  }
+
+  public void setMesas(List<Mesa> mesas) {
+    this.mesas = mesas;
+  }
+
+  public List<Empleado> getEmpleados() {
+    return empleados;
+  }
+
+  public void setEmpleados(List<Empleado> empleados) {
+    this.empleados = empleados;
+  }
+
+  private void inicializarRestaurante() {
+    for (int i = 1; i <= 20; i++) {
+      mesas.add(new Mesa(i, true));
     }
 
-    empleados[0] = new Cocinero();
-    empleados[1] = new Camarero();
-    empleados[2] = new Camarero();
-    empleados[3] = new Camarero();
+    empleados.add(new Cocinero());
+    empleados.add(new Camarero());
+    empleados.add(new Camarero());
+    empleados.add(new Camarero());
 
   }
 }

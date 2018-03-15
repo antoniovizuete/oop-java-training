@@ -9,15 +9,16 @@ public final class ScannerNumerico {
 		
 	}
 	
-	public static Integer scan() {
+	public static Integer scan(String mensaje) {
 		Integer resultado = null;
 		try {
+			System.out.println(mensaje);
 			resultado = scanner.nextInt();
 		} catch (Exception e) {
 			scanner =  newScannerInstance();
 			System.out.println("Error!! No es numerico!!");
 			
-			resultado = scan();
+			resultado = scan(mensaje);
 		}
 		
 		return resultado;

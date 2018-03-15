@@ -1,6 +1,7 @@
 package com.es.everis.beca.vistarestaurante.scanners;
 
 import com.es.everis.beca.restaurante.Restaurante;
+import com.es.everis.beca.restaurante.controller.ReservaController;
 import com.es.everis.beca.restaurante.modelo.Mesa;
 
 import java.util.Scanner;
@@ -10,23 +11,29 @@ import java.util.Scanner;
  */
 public class ScannerMesa {
 
+  private ReservaController controlReservas = new ReservaController();
+
   /**
    * Crea la instancia de {@link Mesa} empleando lo introducido por el usuario.
    *
    * @return mesa
    */
   public Mesa scan() {
-    if(!Restaurante.controlReservas.hayMesasLibres()) {
+    if(!controlReservas.hayMesasLibres()) {
       return null;
     }
     
     printMesasLibres();
-    System.out.println("Introduzca el numero de la mesa a reservar:");
+    String mensaje = "Introduzca el numero de la mesa a reservar:";
 
-    int mesaId = ScannerNumerico.scan();
+    int mesaId = ScannerNumerico.scan(mensaje);
     Mesa resultado = null;
+    
+    while(mesaId < 0 || mesaId > Restaurante.getInstance().getMesas().size()) {
+    	mesaId = ScannerNumerico.scan("Error: mesa fuera de rango" + mensaje);
+    }
 
-    for(Mesa mesa: Restaurante.mesas) {
+    for(Mesa mesa: Restaurante.getInstance().getMesas()) {
       if(mesaId == 0) {
         if(mesa.isLibre()) {
           resultado = mesa;
@@ -44,7 +51,7 @@ public class ScannerMesa {
 	private void printMesasLibres() {
 		System.out.println("Introduzca 0 para seleccionar cualquier mesa");
 	    System.out.print("Las mesas ");
-	    for(Mesa mesa: Restaurante.mesas) {
+	    for(Mesa mesa: Restaurante.getInstance().getMesas()) {
 	      if(mesa.isLibre()) {
 	        System.out.print(mesa.getId() + ",");
 	      }
