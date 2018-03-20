@@ -3,19 +3,15 @@ package com.es.everis.beca.restaurante.modelo;
 /**
  * Clase Empleado.
  */
-public class Empleado extends Persona {
+public abstract class Empleado extends Persona {
 
   /**
    * Cobrar.
    */
-  void cobrar() {
-
-  };
+  public abstract void cobrar();
 
   /**
    * Trabajar.
    */
-  void trabajar() {
-
-  };
+  public abstract void trabajar();
 }

@@ -6,7 +6,7 @@ import com.es.everis.beca.restaurante.modelo.Mesa;
 
 import java.util.List;
 
-public class ListarReservasAccion extends AccionAbstracta {
+public class ListarReservasAccion extends ReservasAccionAbstracta {
 
   public ListarReservasAccion() {
     super(2, "Listar Reservas");

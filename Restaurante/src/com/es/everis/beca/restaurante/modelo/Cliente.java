@@ -8,7 +8,7 @@ public class Cliente extends Persona {
   /**
    * Hacerpedido.
    */
-  public void hacerpedido() {
+  public void hacerPedido() {
 
   };
 

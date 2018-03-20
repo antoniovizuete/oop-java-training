@@ -1,17 +1,16 @@
 package com.es.everis.beca.vistarestaurante.scanners;
 
 import com.es.everis.beca.restaurante.Restaurante;
+import com.es.everis.beca.restaurante.controller.ReservaControllerImpl;
 import com.es.everis.beca.restaurante.controller.ReservaController;
 import com.es.everis.beca.restaurante.modelo.Mesa;
-
-import java.util.Scanner;
 
 /**
  * La clase ScannerMesa crea una instancia de la clase {@link Mesa} a través de System.in.
  */
 public class ScannerMesa {
 
-  private ReservaController controlReservas = new ReservaController();
+  private ReservaController controlReservas = new ReservaControllerImpl();
 
   /**
    * Crea la instancia de {@link Mesa} empleando lo introducido por el usuario.
@@ -35,11 +34,11 @@ public class ScannerMesa {
 
     for(Mesa mesa: Restaurante.getInstance().getMesas()) {
       if(mesaId == 0) {
-        if(mesa.isLibre()) {
+        if(!mesa.isReservada()) {
           resultado = mesa;
           break;
         }
-      } else if (mesaId > 0 && mesaId == mesa.getId() && mesa.isLibre()) {
+      } else if (mesaId > 0 && mesaId == mesa.getId() && !mesa.isReservada()) {
         resultado = mesa;
         break;
       }
@@ -52,7 +51,7 @@ public class ScannerMesa {
 		System.out.println("Introduzca 0 para seleccionar cualquier mesa");
 	    System.out.print("Las mesas ");
 	    for(Mesa mesa: Restaurante.getInstance().getMesas()) {
-	      if(mesa.isLibre()) {
+	      if(!mesa.isReservada()) {
 	        System.out.print(mesa.getId() + ",");
 	      }
 	    }

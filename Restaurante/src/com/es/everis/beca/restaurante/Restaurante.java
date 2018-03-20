@@ -53,7 +53,7 @@ public class Restaurante {
 
   private void inicializarRestaurante() {
     for (int i = 1; i <= 20; i++) {
-      mesas.add(new Mesa(i, true));
+      mesas.add(new Mesa(i));
     }
 
     empleados.add(new Cocinero());

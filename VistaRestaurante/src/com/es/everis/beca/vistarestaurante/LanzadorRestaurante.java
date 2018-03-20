@@ -3,6 +3,11 @@ package com.es.everis.beca.vistarestaurante;
 import com.es.everis.beca.vistarestaurante.menu.MenuController;
 import com.es.everis.beca.vistarestaurante.menu.MenuFactory;
 import com.es.everis.beca.vistarestaurante.menu.MenuTipos;
+import com.es.everis.beca.vistarestaurante.menu.acciones.Accion;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Clase inicializadora de la aplicacion.
@@ -21,8 +26,7 @@ public class LanzadorRestaurante {
 
   private void iniciar() {
     System.out.println("Bienvenido a Restaurante!");
-    MenuController menuController = MenuFactory.getMenu(MenuTipos.LISTA);
-    menuController.mostrarMenu();
+    MenuFactory.getMenu().mostrarMenu();
   }
 
 

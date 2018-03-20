@@ -5,8 +5,15 @@ package com.es.everis.beca.restaurante.modelo;
  */
 public class Cocinero extends Empleado {
 
-  @Override void trabajar() {
-    System.out.println("EstoyCocinando");
+  /**
+   * Cobrar.
+   */
+  @Override public void cobrar() {
+
+  }
+
+  @Override public void trabajar() {
+    System.out.println("Estoy Cocinando");
   }
 
 }

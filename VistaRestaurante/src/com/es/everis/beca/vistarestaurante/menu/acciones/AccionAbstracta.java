@@ -1,12 +1,7 @@
 package com.es.everis.beca.vistarestaurante.menu.acciones;
 
-import com.es.everis.beca.restaurante.Restaurante;
-import com.es.everis.beca.restaurante.controller.ReservaController;
-
 public abstract class AccionAbstracta implements Accion {
   protected static final String SEPARADOR = ") ";
-
-  protected ReservaController reservaController;
 
   private int selector;
   private String texto;
@@ -14,7 +9,6 @@ public abstract class AccionAbstracta implements Accion {
   public AccionAbstracta(int selector, String texto) {
     this.selector = selector;
     this.texto = texto;
-    this.reservaController = new ReservaController();
   }
 
   @Override public int getSelector() {

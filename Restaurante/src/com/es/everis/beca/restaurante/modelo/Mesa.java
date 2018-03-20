@@ -3,15 +3,19 @@ package com.es.everis.beca.restaurante.modelo;
 /**
  * Clase Mesa.
  *
- * Se considera que una Mesa esta
- * reservada cuando la propiedad libre es false.
+ * Consideraciones:
+ *   - una Mesa esta reservada cuando la propiedad reservada es true.
+ *   - una Mesa esta ocupada cuando la propiedad libre es false.
+ *   - una Mesa esta disponible cuando la propiedad reservada es false y libre es true
  *
  */
 public class Mesa {
 
   private Integer id;
 
-  private boolean libre;
+  private boolean reservada = false;
+
+  private boolean libre = true;
 
   private Persona camarero;
 
@@ -29,9 +33,8 @@ public class Mesa {
   /**
    * Instantiates a new Mesa.
    */
-  public Mesa(Integer id, boolean libre) {
+  public Mesa(Integer id) {
     this.id = id;
-    this.libre = libre;
   }
 
   /**
@@ -125,6 +128,24 @@ public class Mesa {
   }
 
   /**
+   * Is reservada boolean.
+   *
+   * @return the boolean
+   */
+  public boolean isReservada() {
+    return reservada;
+  }
+
+  /**
+   * Sets reservada.
+   *
+   * @param reservada the reservada
+   */
+  public void setReservada(boolean reservada) {
+    this.reservada = reservada;
+  }
+
+  /**
    * Is libre boolean.
    *
    * @return the boolean
@@ -153,6 +174,6 @@ public class Mesa {
   }
 
   @Override public String toString() {
-    return "Mesa{" + "id=" + id + ", libre=" + libre + '}';
+    return "Mesa{" + "id=" + id + ", reservada=" + reservada + '}';
   }
 }

@@ -6,7 +6,7 @@ import com.es.everis.beca.vistarestaurante.scanners.ScannerComensales;
 import com.es.everis.beca.vistarestaurante.scanners.ScannerMesa;
 import com.es.everis.beca.vistarestaurante.scanners.ScannerPersona;
 
-public class ReservarAccion extends AccionAbstracta {
+public class ReservarAccion extends ReservasAccionAbstracta {
 
   public ReservarAccion() {
     super(1, "Reservar mesa");
