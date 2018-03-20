@@ -38,7 +38,7 @@ public abstract class ColeccionMenuController implements MenuController {
 
     acciones.stream()
         .filter(accion -> accion.getSelector() == opcion)
-        .findFirst().get()
-        .accionar();
+        .findFirst().ifPresent(accion -> accion.accionar())
+        ;
   }
 }
